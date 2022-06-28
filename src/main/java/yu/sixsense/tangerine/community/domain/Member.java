@@ -26,12 +26,14 @@ public class Member {
     private String profileImage; //이미지 경로
 
 
-//    public Member(Long id, int localCode, String name, String profileImage) {
-//        this.id = id;
-//        this.localCode = localCode;
-//        this.name = name;
-//        this.profileImage = profileImage;
-//    }
+    public Member(){}
+
+    public Member(Long id, int localCode, String name, String profileImage) {
+        this.id = id;
+        this.localCode = localCode;
+        this.name = name;
+        this.profileImage = profileImage;
+    }
 
     public void updateLocal(int localCode){
         this.localCode = localCode;

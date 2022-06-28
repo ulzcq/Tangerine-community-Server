@@ -26,11 +26,12 @@ public class MemberApiController {
     @PostMapping("/api/members")
     public CreateMemberResponse saveMember(@RequestBody @Valid CreateMemberRequest request) {
 
-        Member member = new Member();
-
-        member.setId(request.getId());
-        member.setName(request.getName());
-        //TODO: 프로필사진 셋팅
+        Member member = new Member(
+                request.getId(),
+                request.getLocalCode(),
+                request.getName(),
+                request.getProfileImage() //TODO: 프로필사진 --> 강의 들은 후 변경
+        );
 
         Long id = memberService.join(member);
         return new CreateMemberResponse(id);
@@ -40,6 +41,11 @@ public class MemberApiController {
     static class CreateMemberRequest {
         private Long id;
         private String name;
+        //Test 용
+        private int localCode;
+        private String profileImage;
+        //TEST용
+
         //TODO: 프로필사진 향후 추가
     }
 
